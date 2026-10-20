@@ -10,12 +10,13 @@ The primary audience is International skilled professionals, employer sponsored 
 
 ## Type
 
-- Primary family: Google Sans Flex, Arial, sans-serif.
-- Body size: 16px base with 1.65 line height.
-- Reading copy: approximately 17px to 19px where a longer paragraph needs more comfort.
-- Hero heading: responsive, capped around 88px on wide desktop, with a more restrained mobile scale.
-- Section headings: responsive, capped around 57px.
-- Use weight 680 to 760 for hierarchy. Reserve the strongest weight for H1, H2 and visa subclass numbers.
+- Google Sans Flex, regular weight 400 for headings and body copy.
+- Hero heading: clamp(44px, 5vw, 72px), 44px on mobile; line height 1.08 / 1.12.
+- Section heading: 37.5px desktop / 35px mobile; line height 1.25.
+- Supporting copy: 17.5px, line height 1.6; cards and labels: 15px, line height 1.6.
+- Navy buttons #102568 with white text; hover #243966. Keep letter spacing normal.
+- Light footer with subtle divider, dark text and keyboard focus states.
+- See typography.md for the implemented type scale.
 
 ## Layout
 
@@ -41,7 +42,7 @@ The design uses warm or cool paper-like surfaces, ink text, muted secondary text
 - Numbered process list for SkillSelect and Student visa preparation.
 - Evidence cards for skills assessment and Genuine Student topics.
 - Native FAQ details with one open item at a time.
-- Footer disclaimer and privacy page. There is no contact form in this version.
+- Footer with ANZ Migrate professional registration details, a Who We Are page and a privacy page. No contact form or Chatwoot widget.
 
 ## Motion
 
