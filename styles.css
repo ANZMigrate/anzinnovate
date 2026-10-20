@@ -844,7 +844,7 @@ body .contact-submit:hover, body .contact-cta-action .button:hover {
   border-color: var(--type-navy-hover);
 }
 /* Footer is a light surface with accessible dark type and plain text identity. */
-body .site-footer {
+body .site-footer, body.site-anzinnovate .site-footer {
   background: var(--page-bg);
   color: var(--type-heading);
   box-shadow: 0 -8px 28px -16px rgb(19 35 78 / .18);
