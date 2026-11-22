@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace the relative sitemap path with the deployed absolute URL when the production hostname is known.
-Sitemap: /sitemap.xml
+Sitemap: https://anzinnovate.com/sitemap.xml

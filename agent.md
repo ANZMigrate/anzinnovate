@@ -1,46 +1,22 @@
 # ANZInnovate agent notes
 
 ## Purpose
-
-This is a standalone static Australian immigration information site for International skilled professionals, employer sponsored workers and students. It covers skilled migration, employer sponsored skilled visas and Student visa subclass 500 only.
+Static Australian National Innovation visa (subclass 858) website published by ANZ Migrate Pte Ltd.
 
 ## Project boundaries
+- Use semantic HTML, local CSS and vanilla JavaScript; no framework, build tool, package, backend, forms or calculator.
+- Preserve mobile navigation, accessibility, accordion functionality and reduced-motion fallbacks.
+- Confirm public immigration facts against the ANZ Migrate NIV information sheets and Department of Home Affairs.
+- Disclose private publisher identity, national migration registration identifiers and not-government status.
 
-- Use semantic HTML, local CSS and local vanilla JavaScript.
-- Keep the site deployable by opening its own `index.html` or serving the folder as a static root.
-- Do not add React, Vue, Next.js, Tailwind, Bootstrap, jQuery, TypeScript, npm packages, build tools or a backend.
-- Do not add a contact form, fake submission state, eligibility calculator, chatbot, testimonial, rating or invented professional credential.
-- Do not add unrelated visa categories.
-- ANZ Migrate is the publisher; show supplied Australian and New Zealand registration identifiers in all footers. The website name is the brand identifier. Do not create a logo, logo mark, flag, mascot or invented firm identity.
+## Pages
+- `index.html`: NIV eligibility, nine indicators, priority sectors, process, checklist, FAQs and contact CTA.
+- `who-we-are/index.html`: publisher information.
+- `privacy/index.html`: privacy and official sources.
+- Legacy routes `/visas/`, `/study/`, `/skillselect/`, `/faq/` should be 301 redirects configured in `vercel.json` and `_redirects`. Their HTML files are non-indexed fallback redirects only.
 
-## Page map
-
-- `index.html`: country or network overview, visa set, study entry point and evidence review.
-- `visas/index.html`: subclasses 189, 190, 491, 482, 186 and 494 comparison.
-- `skillselect/index.html`: ten step SkillSelect and EOI sequence.
-- `study/index.html`: Student visa subclass 500 process, Genuine Student requirement and post study considerations.
-- `faq/index.html`: search intent questions written for this audience.
-- `privacy/index.html`: static site privacy note.
-- `who-we-are/index.html`: concise ANZ Migrate publisher identity with official About Us link.
-
-## Content guardrails
-
-Use current Australian terminology: Skills in Demand visa subclass 482, Employer Nomination Scheme visa subclass 186, Skilled Employer Sponsored Regional visa subclass 494, Student visa subclass 500, Genuine Student requirement, Confirmation of Enrolment, CRICOS, OSHC, SkillSelect, Expression of Interest and ImmiAccount.
-
-Do not invent visa charges, processing times, invitation scores, state nomination allocations, salary thresholds, quotas, approval rates, course fees or professional registration details. State clearly that a minimum 65 point threshold for subclasses 189, 190 and 491 does not guarantee an invitation. Studying in Australia does not guarantee permanent residence.
-
-Use the Department of Home Affairs as the primary immigration source and CRICOS for course and provider registration. Link to current official pages when adding a new rule.
-
-## Interaction rules
-
-GSAP is loaded from a pinned public CDN URL. The local `script.js` must work if GSAP is unavailable, and must respect `prefers-reduced-motion`. Keep native `details` accordions keyboard accessible. Never hide core content behind animation.
-
-## QA before handoff
-
-1. Open every page directly from the site folder.
-2. Check navigation from every page and keyboard focus states.
-3. Check mobile navigation, FAQ accordions and scroll progress.
-4. Confirm no console errors if the CDN is unavailable.
-5. Search visible HTML for em dashes, en dashes and generic marketing phrases.
-6. Recheck every current visa rule against Home Affairs before publishing.
-7. Replace site-relative sitemap values with the production origin before submitting the sitemap to search engines.
+## QA
+1. Check nine indicator cards, two-indicator benchmarks, 2026 statistics, visa fees and Form 1000 requirements.
+2. Check internal and cross-page navigation including #next and #faq.
+3. Verify hosting honours 301 redirects; HTML fallbacks are not actual HTTP 301s.
+4. Validate deployment and sitemap with the live hostname.

@@ -1,0 +1,44 @@
+{
+  "redirects": [
+    {
+      "source": "/visas",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/visas/:path*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/study",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/study/:path*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/skillselect",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/skillselect/:path*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq",
+      "destination": "/#faq",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq/:path*",
+      "destination": "/#faq",
+      "statusCode": 301
+    }
+  ]
+}
