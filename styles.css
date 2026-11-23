@@ -229,7 +229,7 @@ p { color: var(--muted); }
 .dark-layout .button-secondary { border-color: rgba(255, 255, 255, 0.3); color: #fff; }
 .dark-layout .button-secondary:hover { border-color: var(--accent); background: var(--accent); }
 .dark-index { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
-.dark-index li { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.18); padding: 0.85rem 0; color: var(--dark-muted); font-size: 0.9rem; }
+.dark-index li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); align-items: start; column-gap: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.18); padding: 0.85rem 0; color: var(--dark-muted); font-size: 0.9rem; }
 .dark-index strong { color: #fff; font-weight: 600; }
 
 .page-hero { padding: clamp(4rem, 8vw, 7rem) 0 clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid var(--line); }
@@ -601,7 +601,7 @@ p, li { overflow-wrap: break-word; }
   background: radial-gradient(ellipse at 85% 10%, rgba(104,138,150,.15), transparent 38%), var(--dark);
 }
 .dark-index { gap: 0; }
-.dark-index li { padding: 1.35rem 0; align-items: baseline; }
+.dark-index li { padding: 1.35rem 0; align-items: start; }
 .dark-index strong { font-weight: 680; }
 .page-hero {
   position: relative;
@@ -684,6 +684,10 @@ p, li { overflow-wrap: break-word; }
   .section-head { gap: .9rem; }
   .inline-cta { align-items: flex-start; }
 }
+@media (max-width: 600px) {
+  .dark-index li { grid-template-columns: minmax(0, 1fr); row-gap: .35rem; }
+}
+
 @media (max-width: 480px) {
   .hero { padding-top: 3.75rem; }
   .hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
@@ -696,7 +700,7 @@ p, li { overflow-wrap: break-word; }
   .visual-card-top { font-size: .58rem; margin-bottom: .9rem; }
   .route-card { min-height: 21rem; }
   .contact-cta-card { border-radius: 1.2rem; }
-  .dark-index li { flex-direction: column; gap: .3rem; }
+  .dark-index li { grid-template-columns: minmax(0, 1fr); row-gap: .3rem; }
   .page-hero h1 { font-size: clamp(2.6rem, 10.5vw, 3.5rem); }
 }
 @media (prefers-reduced-motion: reduce) {
