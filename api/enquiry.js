@@ -156,7 +156,7 @@ export default async function handler(request, response) {
     "CV attachment: " + (resume ? resume.filename : "Not provided"),
     "Current annual base salary: " + rawSalary + " " + currency, "",
     "International patents / IP:", patents || "Not provided", "",
-    "International speaking engagements:", speaking || "Not provided", "",
+    "Speaking engagements:", speaking || "Not provided", "",
     "Media / press:", media || "Not provided", "",
     "Privacy consent: Confirmed",
     "Submitted (UTC): " + new Date().toISOString(),
