@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="enquiry.js" defer></script>
 </head>
 <body class="site-anzinnovate" data-page="home">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -27,7 +28,7 @@
         <a href="#sectors">Priority sectors</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
-        <a href="who-we-are/">Who we are</a><a class="nav-contact" href="#next">Contact us</a>
+        <a href="who-we-are/">Who we are</a><a class="nav-contact" href="#eligibility-check">Check eligibility</a>
       </nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
     </div>
@@ -42,9 +43,10 @@
           <h1>Permanent residence for exceptional talent.</h1>
           <p class="hero-lede">The National Innovation visa (NIV), subclass 858, is a permanent Australian visa for people with an internationally recognised record of exceptional and outstanding achievement in a profession, a sport, the arts, or academia and research. It is intended for senior professionals and technical leaders, senior academics and researchers, entrepreneurs, innovative investors, athletes and creatives who are genuinely among the best in their field and whose work would benefit the Australian community.</p>
           <div class="hero-actions">
-            <a class="button" href="#eligibility">Check the requirements</a>
+            <a class="button button-eligibility" href="#eligibility-check">Check if you're eligible</a>
             <a class="button button-secondary" href="#achievements">See what counts as achievement</a>
           </div>
+          <p class="hero-secondary-path">Prefer to read the details? <a href="#eligibility">Check the requirements</a>.</p>
           <div class="hero-notes" aria-label="Information scope">
             <span>Direct permanent residence</span>
             <span>No occupation list</span>
@@ -70,6 +72,115 @@
       </div>
     </div>
 
+
+    <section class="section quick-check-section" id="eligibility-check" aria-labelledby="eligibility-check-title">
+      <div class="container quick-check-layout">
+        <div class="quick-check-intro">
+          <p class="eyebrow">Start here · Direct enquiry</p>
+          <h2 id="eligibility-check-title">Check if you're eligible for the NIV.</h2>
+          <p class="quick-check-lead">Tell us about your career and internationally recognised achievements. Send your information directly to ANZInnovate for an initial enquiry review.</p>
+          <div class="quick-check-note">
+            <strong>A shorter path, without losing the detail.</strong>
+            <p>You don't need to read every section before contacting us. Share your LinkedIn profile or CV, earnings and key achievements, then continue exploring the guidance below.</p>
+          </div>
+          <p class="quick-check-disclaimer">This is an enquiry, not an official eligibility decision or a visa application. The Department of Home Affairs makes visa decisions.</p>
+          <a class="quick-check-read" href="#overview">Read the detailed NIV guide ↓</a>
+        </div>
+        <form class="enquiry-form" id="niv-enquiry-form" action="/api/enquiry" method="post" novalidate>
+          <div class="enquiry-form-heading">
+            <div>
+              <span class="form-kicker">NIV profile enquiry</span>
+              <h3>Tell us about your achievements</h3>
+            </div>
+            <span class="form-private-note">Sent securely</span>
+          </div>
+          <p class="form-intro">Fields marked * are required. Provide links or a brief description; you do not need to prepare a full application.</p>
+          <fieldset>
+            <legend>01 / Your contact details</legend>
+            <div class="form-fields form-fields--two">
+              <div class="form-field">
+                <label for="enquiry-name">Full name <span aria-hidden="true">*</span></label>
+                <input id="enquiry-name" name="name" type="text" autocomplete="name" maxlength="120" required placeholder="Your full name">
+              </div>
+              <div class="form-field">
+                <label for="enquiry-email">Email address <span aria-hidden="true">*</span></label>
+                <input id="enquiry-email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+              </div>
+              <div class="form-field">
+                <label for="enquiry-phone">Phone / WhatsApp <span class="optional">(optional)</span></label>
+                <input id="enquiry-phone" name="phone" type="tel" autocomplete="tel" maxlength="60" placeholder="Include country code">
+              </div>
+              <div class="form-field">
+                <label for="enquiry-field">Current role or area of expertise <span class="optional">(optional)</span></label>
+                <input id="enquiry-field" name="field" type="text" maxlength="150" placeholder="e.g. CTO, biotechnology, academia">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>02 / Your professional profile</legend>
+            <p class="fieldset-help">Add your LinkedIn profile or upload a CV / résumé. Either one is enough.</p>
+            <div class="form-field">
+              <label for="enquiry-linkedin">LinkedIn profile URL</label>
+              <input id="enquiry-linkedin" name="linkedin" type="url" inputmode="url" maxlength="400" placeholder="https://www.linkedin.com/in/your-profile">
+            </div>
+            <div class="form-field">
+              <label for="enquiry-resume">Or attach your CV / résumé</label>
+              <input id="enquiry-resume" name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-describedby="resume-help">
+              <span class="field-help" id="resume-help">PDF, DOC or DOCX, maximum 2 MB. Do not upload identity documents.</span>
+            </div>
+            <div class="form-fields form-fields--salary">
+              <div class="form-field">
+                <label for="enquiry-salary">Current annual base salary <span aria-hidden="true">*</span></label>
+                <input id="enquiry-salary" name="salary" type="number" inputmode="decimal" min="0.01" step="any" required placeholder="e.g. 190100">
+              </div>
+              <div class="form-field">
+                <label for="enquiry-currency">Currency <span aria-hidden="true">*</span></label>
+                <select id="enquiry-currency" name="currency" required>
+                  <option value="">Select currency</option>
+                  <option value="AUD">AUD</option><option value="USD">USD</option><option value="GBP">GBP</option>
+                  <option value="EUR">EUR</option><option value="SGD">SGD</option><option value="NZD">NZD</option>
+                  <option value="CAD">CAD</option><option value="AED">AED</option><option value="INR">INR</option>
+                  <option value="CNY">CNY</option><option value="HKD">HKD</option><option value="MYR">MYR</option>
+                  <option value="IDR">IDR</option><option value="JPY">JPY</option><option value="OTHER">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field currency-other" id="enquiry-other-currency-wrap" hidden>
+              <label for="enquiry-other-currency">Three-letter currency code <span aria-hidden="true">*</span></label>
+              <input id="enquiry-other-currency" name="otherCurrency" type="text" maxlength="3" pattern="[A-Za-z]{3}" placeholder="e.g. CHF">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>03 / Your international recognition</legend>
+            <p class="fieldset-help">Summarise anything relevant or paste links. Leave a field blank if it does not apply.</p>
+            <div class="form-field">
+              <label for="enquiry-patents">International patents or intellectual property</label>
+              <textarea id="enquiry-patents" name="patents" rows="2" maxlength="2500" placeholder="Patent titles, countries, registration numbers or public links"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="enquiry-speaking">International speaking engagements</label>
+              <textarea id="enquiry-speaking" name="speaking" rows="2" maxlength="2500" placeholder="Conference, year, keynote or invited speaker role, links"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="enquiry-media">Media / press articles written by or mentioning you</label>
+              <textarea id="enquiry-media" name="media" rows="2" maxlength="2500" placeholder="Publication name, article title, interview or link"></textarea>
+            </div>
+          </fieldset>
+          <div class="enquiry-hp" aria-hidden="true">
+            <label for="enquiry-website">Website</label>
+            <input id="enquiry-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-consent">
+            <label for="enquiry-consent"><input id="enquiry-consent" name="consent" type="checkbox" required> <span>I agree to ANZInnovate, published by ANZ Migrate, using these details and any CV I upload to respond to my enquiry. <a href="privacy/">Privacy information</a>. <span aria-hidden="true">*</span></span></label>
+          </div>
+          <div id="enquiry-status" class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+          <button class="button button-eligibility enquiry-submit" type="submit">Send my eligibility enquiry</button>
+          <p class="form-footnote">Your enquiry is sent to <strong>info@anzinnovate.com</strong>. It is not submitted to the Department of Home Affairs.</p>
+          <noscript><p class="form-status">Please enable JavaScript to use this form, or email info@anzinnovate.com.</p></noscript>
+        </form>
+      </div>
+    </section>
+
     <section class="section" id="overview">
       <div class="container">
         <div class="section-head">
@@ -87,6 +198,7 @@
           <article class="visa-card" data-reveal><div class="visa-card-top"><span class="visa-number">+1</span><span class="visa-label">Family</span></div><h3>Family included</h3><p>A partner and dependent children may be included in the application, subject to health and character requirements.</p><ul><li>Adult applicants may add family members before a decision; an applicant under 18 may include only a parent and that parent's family unit, and only at lodgement</li><li>Children aged 18 to 22 must be dependent</li><li>An additional charge applies for each family member</li></ul></article>
           <article class="visa-card" data-reveal><div class="visa-card-top"><span class="visa-number">In/Out</span><span class="visa-label">Location</span></div><h3>Apply onshore or offshore</h3><p>Applicants may be in or outside Australia both at lodgement and at grant, provided they are not in immigration clearance.</p><ul><li>Onshore applicants must hold a substantive visa or a Bridging visa A, B or C. Submitting an EOI does not give a bridging visa</li><li>Applicants who hold, or last held, a subclass 491 or 494 visa must have held it for at least three years</li></ul></article>
         </div>
+        <div class="enquiry-bridge"><span>Think your experience may meet the standard? Send your profile for review.</span><a class="button button-eligibility" href="#eligibility-check">Check if you're eligible</a></div>
       </div>
     </section>
 
@@ -98,6 +210,7 @@
           <p class="section-intro">The legal test is demanding. The applicant's record must be internationally recognised in a profession, a sport, the arts, or academia and research, and the achievements must be recent enough to show that the applicant remains active and prominent in that field. A successful career alone does not meet the standard. A senior role may be considered where the organisation, and the applicant's work within it, are recognised on the international stage.</p>
           <p>The NIV is not a general skilled migration visa. It is reserved for people who are genuinely among the best in their field, recognised internationally, and working in one of Australia's designated priority sectors. For professionals, this usually means a senior technical expert at an internationally competitive organisation, or a senior leader or executive at an internationally reputed organisation. In the Education sector, it means Professors and Associate Professors (or the international equivalent) and senior university leaders, not entry-level or mid-career researchers.</p>
           <a class="text-link" href="#achievements">See the achievement indicators</a>
+          <p class="inline-enquiry-link"><a href="#eligibility-check">Prefer a direct enquiry? Check eligibility →</a></p>
         </div>
         <article class="content-panel" data-reveal>
           <span class="panel-label">What the Department must be satisfied of</span>
@@ -137,6 +250,7 @@
           <article class="visa-card" data-reveal><div class="visa-card-top"><span class="visa-number">09</span><span class="visa-label">Academia</span></div><h3>Senior academic appointment</h3><p>A current Professor or Associate Professor appointment (Australian Academic Level D or E, or the international equivalent) at a well-regarded institution.</p><ul><li>Entry-level and mid-career academic roles do not meet this indicator</li><li>Usually combined with publications, h-index and grants</li></ul></article>
         </div>
         <div class="inline-cta"><p>Other evidence the Department may consider includes advisory board appointments, statements from peak professional bodies, and international media coverage of the applicant's work.</p><a class="text-link" href="#evidence">How to build the evidence</a></div>
+        <div class="enquiry-bridge"><span>Recognise your achievements in these indicators? Talk to us directly.</span><a class="button button-eligibility" href="#eligibility-check">Check if you're eligible</a></div>
       </div>
     </section>
 
@@ -153,20 +267,22 @@
           <article class="route-card" data-reveal>
             <span class="card-index">Priority 3 / Tier One</span>
             <h3>Critical Technologies, Health Industries, Renewables and Low Emission Technologies</h3>
-            <p>This tier covers AI, robotics and autonomous systems; cyber security and quantum; biotechnology and clean energy; advanced manufacturing and materials; communications, photonics and sensing; health industries, including genomics, precision medicine, AI in health and implantable and wearable devices; and renewables and low emission technologies, including renewable hydrogen, green metals, carbon storage and critical minerals processing.</p>
+            <details class="sector-details"><summary>Explore Tier One specialisations</summary><p>This tier covers AI, robotics and autonomous systems; cyber security and quantum; biotechnology and clean energy; advanced manufacturing and materials; communications, photonics and sensing; health industries, including genomics, precision medicine, AI in health and implantable and wearable devices; and renewables and low emission technologies, including renewable hydrogen, green metals, carbon storage and critical minerals processing.</p></details>
             <p>Our assessment benchmark for Tier One is at least two indicators of exceptional achievement, supported by evidence of achievement in the sector.</p>
           </article>
           <article class="route-card route-card--study" data-reveal>
             <span class="card-index">Priority 4 / Tier Two</span>
             <h3>Agri-food and AgTech, Defence Capabilities and Space, Education, Financial Services and FinTech, Infrastructure and Transport, Resources</h3>
-            <p>This tier covers agricultural biotechnology, food technology and biosecurity; defence inputs, electromagnetic technologies, propulsion and space systems engineering; senior university management and Professor or Associate Professor appointments (Academic Level D or E, or the international equivalent); blockchain, cloud technologies, software engineering and financial data science; innovative transport manufacturing and large transport infrastructure projects; and automation, geology, metallurgy, beneficiation and critical minerals value-adding in resources.</p>
+            <details class="sector-details"><summary>Explore Tier Two specialisations</summary><p>This tier covers agricultural biotechnology, food technology and biosecurity; defence inputs, electromagnetic technologies, propulsion and space systems engineering; senior university management and Professor or Associate Professor appointments (Academic Level D or E, or the international equivalent); blockchain, cloud technologies, software engineering and financial data science; innovative transport manufacturing and large transport infrastructure projects; and automation, geology, metallurgy, beneficiation and critical minerals value-adding in resources.</p></details>
             <p>As for Tier One, our assessment benchmark for Tier Two is at least two indicators relevant to the sector, each supported by evidence of achievement.</p>
           </article>
         </div>
-        <div class="inline-cta"><p>The Education sector is for senior academics and institutional leaders, not entry-level or mid-career researchers. Strong cases usually combine a current Professor or Associate Professor appointment, a PhD from a highly ranked global university, recent publications in highly ranked journals, a competitive h-index, national-level research grants and keynote roles at major international conferences.</p></div>
-        <div class="inline-cta"><p>Priority 1 covers candidates from any sector who hold an international top-of-field award. Priority 2 covers candidates from any sector nominated by an expert Australian Government, State or Territory government agency; the agency completes Part A of Form 1000 and a supporting statement, both attached to the EOI. For these candidates a broader range of achievements may be considered, including top-of-field sports and arts awards, a track record as a significant angel investor or of leading a company to an IPO, promising entrepreneurial activity in Australia, and exceptional service to the Australian community. All other applications fall into Priority 5, the lowest.</p><a class="text-link" href="#faq">Read the FAQ</a></div>
+        <div class="inline-cta sector-context"><h3>Education sector</h3><p>The Education sector is for senior academics and institutional leaders, not entry-level or mid-career researchers. Strong cases usually combine a current Professor or Associate Professor appointment, a PhD from a highly ranked global university, recent publications in highly ranked journals, a competitive h-index, national-level research grants and keynote roles at major international conferences.</p></div>
+        <div class="inline-cta sector-priority-context"><details class="sector-details"><summary>How Priorities 1, 2 and 5 work</summary><p>Priority 1 covers candidates from any sector who hold an international top-of-field award. Priority 2 covers candidates from any sector nominated by an expert Australian Government, State or Territory government agency; the agency completes Part A of Form 1000 and a supporting statement, both attached to the EOI. For these candidates a broader range of achievements may be considered, including top-of-field sports and arts awards, a track record as a significant angel investor or of leading a company to an IPO, promising entrepreneurial activity in Australia, and exceptional service to the Australian community. All other applications fall into Priority 5, the lowest.</p></details><a class="text-link" href="#faq">Read the FAQ</a></div>
       </div>
     </section>
+
+    <div class="container">        <div class="enquiry-bridge"><span>Ready to share your sector and experience? Start with the short enquiry form.</span><a class="button button-eligibility" href="#eligibility-check">Check if you're eligible</a></div></div>
 
     <section class="section" id="evidence">
       <div class="container split-layout">
@@ -175,6 +291,7 @@
           <h2>Evidence of recognition beyond the employer.</h2>
           <p class="section-intro">Decision makers look for evidence that the applicant's own work is recognised beyond the employer. Evidence should name the applicant or show their personal contribution; company awards and employer press releases that do not do so carry little weight. A senior role at an internationally reputed organisation and earnings at or above the high income threshold are recognised indicators in their own right; third-party evidence of impact, such as awards, citations, media coverage and expert references, makes them considerably stronger.</p>
           <a class="text-link" href="#process">See the application sequence</a>
+          <p class="inline-enquiry-link"><a href="#eligibility-check">Or go straight to the enquiry form →</a></p>
         </div>
         <article class="content-panel" data-reveal>
           <span class="panel-label">Evidence of achievement in the sector</span>
@@ -200,7 +317,7 @@
           <p class="eyebrow">How the process works</p>
           <h2>The NIV is invitation only.</h2>
           <p>A visa application cannot be lodged until the Department issues an invitation. Invitation rounds are held monthly. Between July and September 2026 the Department received 1,969 EOIs and issued 292 invitations: 216 to Tier One candidates (Priority 3) and 45 to Tier Two (Priority 4). An EOI stays active for two years. An invitation is not a pre-assessment: the application must be lodged within 60 days, which cannot be extended, and must prove the achievements the invitation was based on.</p>
-          <div class="hero-actions hero-actions--compact"><a class="button button-secondary" href="https://immi.homeaffairs.gov.au/visas/working-in-australia/visas-for-innovation/national-innovation-visa" rel="noopener">Home Affairs NIV page</a></div>
+          <div class="hero-actions hero-actions--compact"><a class="button button-secondary" href="https://immi.homeaffairs.gov.au/visas/working-in-australia/visas-for-innovation/national-innovation-visa" rel="noopener">Home Affairs NIV page</a><a class="button button-eligibility" href="#eligibility-check">Check eligibility</a></div>
         </div>
         <ol class="dark-index">
           <li><strong>1. Expression of Interest</strong><span>Set out the achievements, indicators and sector, with passport, CV and highest qualification</span></li>
@@ -237,8 +354,10 @@
       </div>
     </section>
 
+    <div class="container">        <div class="enquiry-bridge"><span>Questions about your own achievements? Send them directly to ANZInnovate.</span><a class="button button-eligibility" href="#eligibility-check">Check if you're eligible</a></div></div>
+
     <section class="section section-soft" id="next">
-      <div class="container"><div class="callout"><div><h2>Find out whether your record meets the NIV standard.</h2><p>An early assessment of sector, indicators and evidence shows whether an EOI is realistic and which parts of the record need strengthening first.</p></div><div class="hero-actions"><a class="button" href="https://www.anzmigrate.com/contact" target="_blank" rel="noopener noreferrer">Request an assessment</a><a class="button button-secondary" href="#review">Review the checklist</a></div></div></div>
+      <div class="container"><div class="callout"><div><h2>Find out whether your record meets the NIV standard.</h2><p>An early assessment of sector, indicators and evidence shows whether an EOI is realistic and which parts of the record need strengthening first.</p></div><div class="hero-actions"><a class="button button-eligibility" href="#eligibility-check">Request an assessment</a><a class="button button-secondary" href="#review">Review the checklist</a></div></div></div>
     </section>
 
     <section class="section contact-cta" id="contact-cta">
@@ -263,7 +382,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><a class="site-name" href="#top">ANZInnovate</a><p class="footer-registration">ANZInnovate is published by ANZ Migrate Pte Ltd. Our advisers are Registered Migration Agents for Australia (MARN 0428740 and 1461243) and Licensed Immigration Advisers for New Zealand (LIA 200800600 and 201201134).</p><p class="footer-disclaimer">ANZInnovate is published by ANZ Migrate Pte Ltd, a private migration practice not affiliated with the Australian Government. Visa invitations and decisions are made only by the Department of Home Affairs. The information on this site is general in nature and is not immigration advice for any particular person's circumstances. ANZ Migrate's advisers provide immigration advice only and do not provide investment, financial or legal advice.</p></div>
-        <nav class="footer-nav" aria-label="Footer navigation"><a href="#eligibility">Eligibility</a><a href="#achievements">Achievement indicators</a><a href="#sectors">Priority sectors</a><a href="#faq">FAQ</a><a href="who-we-are/">Who we are</a><a href="privacy/">Privacy</a></nav>
+        <nav class="footer-nav" aria-label="Footer navigation"><a href="#eligibility">Eligibility</a><a href="#achievements">Achievement indicators</a><a href="#sectors">Priority sectors</a><a href="#faq">FAQ</a><a href="who-we-are/">Who we are</a><a href="privacy/">Privacy</a><a href="#eligibility-check">Check eligibility</a></nav>
       </div>
       
       
