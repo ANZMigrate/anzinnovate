@@ -11,9 +11,12 @@
   <meta name="theme-color" content="#f5f4ef">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <link rel="stylesheet" href="experience.css">
   <script src="script.js" defer></script>
+  <script src="experience.js" defer></script>
   <script src="enquiry.js" defer></script>
 </head>
 <body class="site-anzinnovate" data-page="home">
@@ -28,7 +31,8 @@
         <a href="#sectors">Priority sectors</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
-        <a href="who-we-are/">Who we are</a><a class="nav-contact" href="#eligibility-check">Check eligibility</a>
+        <a href="who-we-are/">Who we are</a>
+        <a class="nav-contact" href="#eligibility-check">Check eligibility <span aria-hidden="true">↗</span></a>
       </nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
     </div>
@@ -40,7 +44,8 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">National Innovation visa / subclass 858</p>
-          <h1>Permanent residence for exceptional talent.</h1>
+          <p class="hero-edition"><span>AUSTRALIA</span><span>ANZ INNOVATE / 2026</span></p>
+          <h1>Permanent residence for <em>exceptional talent.</em></h1>
           <p class="hero-lede">The National Innovation visa (NIV), subclass 858, is a permanent Australian visa for people with an internationally recognised record of exceptional and outstanding achievement in a profession, a sport, the arts, or academia and research. It is intended for senior professionals and technical leaders, senior academics and researchers, entrepreneurs, innovative investors, athletes and creatives who are genuinely among the best in their field and whose work would benefit the Australian community.</p>
           <div class="hero-actions">
             <a class="button button-eligibility" href="#eligibility-check">Check if you're eligible</a>
@@ -57,6 +62,7 @@
           <div class="visual-grid" aria-hidden="true"></div>
           <div class="visual-label"><span>Global talent to Australia</span><span>858</span></div>
           <div class="visual-big" aria-hidden="true">85<span>8</span></div>
+          <div class="visual-coordinate" aria-hidden="true"><span>AU / 858</span><span>GLOBAL → AUSTRALIA</span></div>
           <div class="visual-card">
             <div class="visual-card-top"><span>Ministerial Direction 120</span><span>EOI first</span></div>
             <strong>Tier One / Tier Two</strong>
@@ -75,6 +81,7 @@
 
     <section class="section quick-check-section" id="eligibility-check" aria-labelledby="eligibility-check-title">
       <div class="container quick-check-layout">
+        <span class="quick-check-rail" aria-hidden="true">DIRECT / 01</span>
         <div class="quick-check-intro">
           <p class="eyebrow">Start here · Direct enquiry</p>
           <h2 id="eligibility-check-title">Check if you're eligible for the NIV.</h2>
@@ -92,7 +99,7 @@
               <span class="form-kicker">NIV profile enquiry</span>
               <h3>Tell us about your achievements</h3>
             </div>
-            <span class="form-private-note">Sent securely</span>
+            <span class="form-private-note">Private enquiry</span>
           </div>
           <p class="form-intro">Fields marked * are required. Provide links or a brief description; you do not need to prepare a full application.</p>
           <fieldset>
@@ -180,6 +187,24 @@
         </form>
       </div>
     </section>
+
+    <nav class="guide-index" id="guide" aria-label="Explore the NIV guide">
+      <div class="container guide-index-inner">
+        <div class="guide-index-intro">
+          <p class="eyebrow">The field guide</p>
+          <h2>Everything you need to know.<br><em>Nothing you need to guess.</em></h2>
+          <p>The detail is here when you need it. Jump straight to the part that matters to you.</p>
+        </div>
+        <div class="guide-index-links">
+          <a href="#overview"><span class="guide-num">01</span><span class="guide-link-copy"><strong>At a glance</strong><small>Understand the pathway</small></span><span class="guide-arrow" aria-hidden="true">↗</span></a>
+          <a href="#eligibility"><span class="guide-num">02</span><span class="guide-link-copy"><strong>Eligibility</strong><small>The essential requirements</small></span><span class="guide-arrow" aria-hidden="true">↗</span></a>
+          <a href="#achievements"><span class="guide-num">03</span><span class="guide-link-copy"><strong>Achievements</strong><small>What recognition looks like</small></span><span class="guide-arrow" aria-hidden="true">↗</span></a>
+          <a href="#sectors"><span class="guide-num">04</span><span class="guide-link-copy"><strong>Priority sectors</strong><small>Where your work fits</small></span><span class="guide-arrow" aria-hidden="true">↗</span></a>
+          <a href="#process"><span class="guide-num">05</span><span class="guide-link-copy"><strong>Application process</strong><small>From interest to decision</small></span><span class="guide-arrow" aria-hidden="true">↗</span></a>
+          <a href="#faq"><span class="guide-num">06</span><span class="guide-link-copy"><strong>FAQs</strong><small>Answers without the search</small></span><span class="guide-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </nav>
 
     <section class="section" id="overview">
       <div class="container">
@@ -378,6 +403,7 @@
     </section>
   </main>
 
+  <a class="mobile-enquiry-cta" href="#eligibility-check"><span>Check if you're eligible</span><span aria-hidden="true">↗</span></a>
   <footer class="site-footer" >
     <div class="container">
       <div class="footer-grid">
