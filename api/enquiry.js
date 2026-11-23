@@ -81,15 +81,16 @@ export default async function handler(request, response) {
   }
   let data;
   try {
-    // Vercel's Node.js handlers populate request.body. Web Request handlers use text().
-    if (request.body !== undefined && request.body !== null) {
-      if (typeof request.body === "string") data = JSON.parse(request.body);
-      else if (Buffer.isBuffer(request.body)) data = JSON.parse(request.body.toString("utf8"));
-      else data = request.body;
-    } else if (typeof request.text === "function") {
+    // Web Request.body is a ReadableStream, not parsed JSON; prefer text() in that runtime.
+    // Vercel's legacy Node.js handlers instead provide an already-parsed request.body.
+    if (typeof request.text === "function" && typeof request.headers?.get === "function") {
       const raw = await request.text();
       if (raw.length > MAX_BODY_CHARS) return reply({ ok: false, error: "Submission too large." }, 413);
       data = JSON.parse(raw);
+    } else if (request.body !== undefined && request.body !== null) {
+      if (typeof request.body === "string") data = JSON.parse(request.body);
+      else if (Buffer.isBuffer(request.body)) data = JSON.parse(request.body.toString("utf8"));
+      else data = request.body;
     } else {
       // Fallback for ordinary IncomingMessage streams without Vercel's body helper.
       const chunks = [];
